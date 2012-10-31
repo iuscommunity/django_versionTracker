@@ -24,11 +24,10 @@ def get_status(software, release):
         ourversion = OurVersion.objects.get(software=software,
                                             release=release)
     except:
-        if not software.version:
-           return ('pending', status['pending'])
-        # having a software.version without a OurVersion is a problem
-        else:
-            return ('error', status['error'])
+        return ('pending', status['pending'])
+    
+    if not software.version:
+        return ('pending', status['pending'])
     
     # handle stable versions
     if ourversion.stable_version:
