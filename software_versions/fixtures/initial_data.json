@@ -38,5 +38,13 @@
             "html_color_code": "grey", 
             "label": "pending"
         }
+    },
+    {
+        "pk": 6, 
+        "model": "software_versions.status", 
+        "fields": {
+            "html_color_code": "red", 
+            "label": "error"
+        }
     }
 ]

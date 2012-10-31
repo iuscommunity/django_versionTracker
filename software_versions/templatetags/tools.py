@@ -18,18 +18,17 @@ def get_ourversion(versions, release):
 @register.filter()   
 def get_status(software, release):
     status = getStatues()
+
+    # get OurVersion object else see if a pending status
     try:
         ourversion = OurVersion.objects.get(software=software,
                                             release=release)
     except:
-        return ('error', status['error'])
-    
-    # handle new objects or ones where upstream failed
-    if not software.version and not ourversion.stable_version \
-      and not ourversion.testing_version:
-        return ('pending', status['pending'])
-    elif not software.version:
-        return ('error', status['error'])
+        if not software.version:
+           return ('pending', status['pending'])
+        # having a software.version without a OurVersion is a problem
+        else:
+            return ('error', status['error'])
     
     # handle stable versions
     if ourversion.stable_version:
