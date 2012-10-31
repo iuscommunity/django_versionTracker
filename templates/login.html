@@ -4,7 +4,7 @@
     <div class="container">
       <div class="content">
         
-        <h3>Login to Version Tracker/h3><br>
+        <h3>Login to Version Tracker</h3><br>
         <form name="login" action="{% url login_view %}" method="POST">
         {% csrf_token %}
           <label for="id_username">Username</label> <input id="id_username" type="text" name="username" maxlength="30" />
