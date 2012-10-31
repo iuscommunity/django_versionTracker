@@ -28,18 +28,18 @@ urlpatterns = patterns('',
     url(r'^logout/$', 'software_versions.views.mylogout', name='logout_view'),
     
     # list and package views
-    url(r'^softwares/$', 'software_versions.views.softwares',
-        name='softwares_view'),
-    url(r'^softwares/(?P<software_id>[\d]+)/$', 'software_versions.views.software',
-        name='software_view'),
-    url(r'^softwares/(?P<software_id>[\d]+)/(?P<release_id>[\d]+)/$', 'software_versions.views.ourversion',
+    url(r'^packages/$', 'software_versions.views.packages',
+        name='packages_view'),
+    url(r'^packages/(?P<software_id>[\d]+)/$', 'software_versions.views.package',
+        name='package_view'),
+    url(r'^packages/(?P<software_id>[\d]+)/(?P<release_id>[\d]+)/$', 'software_versions.views.ourversion',
         name='ourversion_view'),
     
     
     # assign functions
-    url(r'^softwares/(?P<software_id>[\d]+)/assign/$',
+    url(r'^packages/(?P<software_id>[\d]+)/assign/$',
         'software_versions.views.assign_software', name='assign_view'),
-    url(r'^softwares/(?P<software_id>[\d]+)/unassign/$',
+    url(r'^packages/(?P<software_id>[\d]+)/unassign/$',
         'software_versions.views.unassign_software', name='unassign_view'),
     
     # api views

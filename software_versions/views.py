@@ -15,19 +15,19 @@ def home(request):
     releases = Release.objects.all()
     return render(request, 'home.html', content)   
 
-def softwares(request):
+def packages(request):
     # container to hold data passed to templates
     content = dict(settings=settings)
     releases = Release.objects.all()
     content['releases'] = releases
-    return render(request, 'softwares.html', content)
+    return render(request, 'packages.html', content)
     
-def software(request, software_id):
+def package(request, software_id):
     # container to hold data passed to templates
     content = dict(settings=settings)
     software = Software.objects.get(id=software_id)
     content['software'] = software
-    return render(request, 'software.html', content)
+    return render(request, 'package.html', content)
 
 def ourversion(request, software_id, release_id):
     content = dict(settings=settings)
@@ -41,14 +41,14 @@ def assign_software(request, software_id):
     software_obj = Software.objects.get(id=software_id)
     software_obj.assigned = request.user
     software_obj.save()
-    return redirect(reverse('software_view', kwargs={'software_id':software_id}))
+    return redirect(reverse('package_view', kwargs={'software_id':software_id}))
     
 @login_required   
 def unassign_software(request, software_id):
     software_obj = Software.objects.get(id=software_id)
     software_obj.assigned = None
     software_obj.save()
-    return redirect(reverse('software_view', kwargs={'software_id':software_id}))
+    return redirect(reverse('package_view', kwargs={'software_id':software_id}))
 
 @login_required
 def account(request):
