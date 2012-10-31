@@ -1,0 +1,7 @@
+*.db
+settings.py
+*.pyc
+.coverage
+htmlcov
+*.sql
+updater

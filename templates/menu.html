@@ -1,0 +1,29 @@
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+      
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href='{% url home_view %}'>
+	  {{ settings.TITLE }}</a>
+	  
+	  {% if user.is_authenticated %}
+	    <p class="navbar-text pull-right"><a href="{% url account_view %}"><font size=2>
+	    Welcome <b>{{ user }}</b></font></a>
+	    <a href='{% url logout_view %}'><i class="icon-remove icon-white"></i></a>
+	  {% else %}
+	    <p class="navbar-text pull-right"><a href="{% url login_view %}">Login</a>
+	  {% endif %}
+        </div>
+        
+        <div class="container">
+          <ul class="nav">
+	    <li><a href="{% url softwares_view %}">Softwares</a></li>
+	  </ul>
+        </div>
+      
+      </div>
+    </div>

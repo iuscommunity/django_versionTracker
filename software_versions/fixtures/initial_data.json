@@ -1,0 +1,42 @@
+[
+    {
+        "pk": 1, 
+        "model": "software_versions.status", 
+        "fields": {
+            "html_color_code": "#00CC00", 
+            "label": "current"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "software_versions.status", 
+        "fields": {
+            "html_color_code": "red", 
+            "label": "outdated"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "software_versions.status", 
+        "fields": {
+            "html_color_code": "orange", 
+            "label": "testing"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "software_versions.status", 
+        "fields": {
+            "html_color_code": "blue", 
+            "label": "newer"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "software_versions.status", 
+        "fields": {
+            "html_color_code": "grey", 
+            "label": "pending"
+        }
+    }
+]

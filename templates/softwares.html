@@ -1,0 +1,96 @@
+{% include 'head.html' %}
+{% include 'menu.html' %}
+{% load tools %}
+
+    <div class="container">
+      <div class="content">
+        
+       <table class="table table-striped" id="table">
+        <thead>
+          <tr>
+            <th><b>Package <a href="#"><i class="icon-resize-vertical"></i></a></b></th>
+            <th><b>Stable <a href="#"><i class="icon-resize-vertical"></i></a></b></th>
+            {% if not settings.DISABLE_TESTING %}
+              <th><b>Testing <a href="#"><i class="icon-resize-vertical"></i></a></b></th>
+            {% endif %}
+            {% if not settings.DISABLE_DEVELOPMENT %}
+              <th><b>Development <a href="#"><i class="icon-resize-vertical"></i></a></b></th>
+            {% endif %}
+            <th><b>Upstream <a href="#"><i class="icon-resize-vertical"></i></a></b></th>
+            <th><b>Release <a href="#"><i class="icon-resize-vertical"></i></a></b></th>
+            <th><b>Status <a href="#"><i class="icon-resize-vertical"></i></a></b></th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          {% for release in releases %}
+            {% for software in release.software_set.all %}
+              {% if software.enabled %}
+              <tr>
+                
+                <!-- SOFTWARE LABEL -->
+                <td>
+                  <a href='{% url software_view software.id %}'>
+                     {{ software.label }}</a>
+                </td>
+                
+                <!-- STABLE VERSION -->   
+                <td>
+                {% for key, value in software.ourversion_set.all|get_ourversion:release %}
+                  {% if key == 'stable_version' %}
+                    {% if value %}
+                      {{ value }}
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+                </td>
+                
+                <!-- TESTING VERSION -->
+                {% if not settings.DISABLE_TESTING %}
+                <td>
+                {% for key, value in software.ourversion_set.all|get_ourversion:release %}
+                  {% if key == 'testing_version' %}
+                    {% if value %}
+                      {{ value }}
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+                </td>
+                {% endif %}
+  
+                <!-- DEVELOPMENT VERSION -->
+                {% if not settings.DISABLE_DEVELOPMENT %}
+                <td>
+                {% for key, value in software.ourversion_set.all|get_ourversion:release %}
+                  {% if key == 'development_version' %}
+                    {% if value %}
+                      {{ value }}
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+                </td>
+                {% endif %}
+                
+                <!-- UPSTREAM VERSION -->
+                <td>{{ software.version }}</td>
+                
+                <!-- RELEASE TAG -->
+                <td>{{ release.label }} </td>
+                
+                <!-- STATUS AREA -->
+                <td><font color='{{ software|get_status_color:release }}'>
+                {{ software|get_status_text:release }}</font>
+                </td>
+                
+            </tr>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+        </tbody>
+      </table>
+       
+      {% include 'dataTables.html' %}
+      </div>
+    </div>
+
+{% include 'foot.html' %}

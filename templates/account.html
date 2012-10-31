@@ -1,0 +1,45 @@
+{% include 'head.html' %}
+{% include 'menu.html' %}
+
+    <div class="container">
+      <div class="content">
+        
+        <h3>Welcome {{ user }}</h3><br>
+        
+        <table cellpadding=10 cellspacing=10>
+         
+        {% if user.email %} 
+        <tr>
+          <td width=125><b>Email:</b></td>
+          <td>{{ user.email }}</td>
+        </tr>
+        {% endif %}
+
+        <tr>
+          <td valign="middle" width=125><b>API Key:</b></td>
+          <td>
+          {% if user.api_key %}
+            {{ user.api_key.key }}
+          {% else %}
+            <a class="btn" href="{% url generate_api_key_view %}">
+                <i class="icon-gift"></i> Generate API Key
+             </a>
+          {% endif %}
+          </td>
+        </tr>
+        
+        </table>
+        
+        
+        {% if user.is_staff %}
+        <br>
+        <a class="btn btn-info" href="{% url admin:index %}">
+          <i class="icon-home icon-white"></i> Admin Page
+       </a>
+        {% endif %}
+        
+
+       </div>
+    </div>
+
+{% include 'foot.html' %}

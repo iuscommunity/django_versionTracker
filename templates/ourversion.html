@@ -1,0 +1,61 @@
+{% include 'head.html' %}
+{% include 'menu.html' %}
+{% load tools %}
+
+    <div class="container">
+      <div class="content">
+        
+        <h2>{{ ourversion.label }}</h2><br>
+
+      <table width=100% cellpadding=5 cellspacing=5>
+        
+        <tr>
+            <td width=125>Label</td>
+            <td>{{ ourversion.label }}</td>
+        </tr>
+        
+        <tr>
+            <td><hr>Stable Version</td>
+            <td><hr>{{ ourversion.stable_version }}</td>
+        </tr>
+        
+        {% if not settings.DISABLE_TESTING %}
+        <tr>
+            <td>Testing Version</td>
+            <td>{{ ourversion.testing_version }}</td>
+        </tr>
+        {% endif %}
+        
+        {% if not settings.DISABLE_DEVELOPMENT %}
+        <tr>
+            <td>Development Version</td>
+            <td>{{ ourversion.development_version }}</td>
+        </tr>
+        {% endif %}
+        
+        <tr>
+            <td><hr>Software</td>
+            <td><hr><a href='{% url software_view ourversion.software.id %}'>{{ ourversion.software }}</a></td>
+        </tr>
+        
+        <tr>
+            <td>Release</td>
+            <td>{{ ourversion.release }}</td>
+        </tr>
+        
+        <tr>
+            <td><hr>Status</td>
+            <td><hr>{{ ourversion.status }}</td>
+        </tr>
+        
+        <tr>
+            <td valign='top'><hr>Logs</td>
+            <td><hr><pre>{{ ourversion.logs }}</pre></td>
+        </tr>
+            
+      </table>
+      
+      </div>
+    </div>
+
+{% include 'foot.html' %}
