@@ -27,7 +27,7 @@ def get_status(software, release):
         return ('pending', status['pending'])
     
     if not software.version:
-        return ('pending', status['pending'])
+        return ('error', status['error'])
     
     # handle stable versions
     if ourversion.stable_version:
