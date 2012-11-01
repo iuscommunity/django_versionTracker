@@ -46,5 +46,13 @@
             "html_color_code": "red", 
             "label": "error"
         }
+    },
+    {
+        "pk": 7, 
+        "model": "software_versions.status", 
+        "fields": {
+            "html_color_code": "orange", 
+            "label": "development"
+        }
     }
 ]

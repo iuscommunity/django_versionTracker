@@ -43,6 +43,14 @@ def get_status(software, release):
                 return ('testing', status['testing'])
             elif LooseVersion(software.version) < LooseVersion(ourversion.testing_version):
                 return ('newer', status['newer'])
+            
+    # handle development versions
+    if not settings.DISABLE_DEVELOPMENT:
+        if ourversion.development_version:
+            if LooseVersion(software.version) == LooseVersion(ourversion.development_version):
+                return ('development', status['development'])
+            elif LooseVersion(software.version) < LooseVersion(ourversion.development_version):
+                return ('newer', status['newer'])
         
     return ('outdated', status['outdated'])
 
