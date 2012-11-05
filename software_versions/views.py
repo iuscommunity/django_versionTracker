@@ -13,7 +13,7 @@ from software_versions.decorators.secure import secure_required
 def home(request):
     content = dict(settings=settings)
     releases = Release.objects.all()
-    return render(request, 'home.html', content)   
+    return render(request, 'home.html', content)
 
 def packages(request):
     # container to hold data passed to templates
@@ -36,7 +36,7 @@ def ourversion(request, software_id, release_id):
     content['ourversion'] = ourversion
     return render(request, 'ourversion.html', content)
 
-@login_required   
+@login_required
 def assign_software(request, software_id):
     software_obj = Software.objects.get(id=software_id)
     software_obj.assigned = request.user
