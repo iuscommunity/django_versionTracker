@@ -72,7 +72,7 @@
                 {% endif %}
                 
                 <!-- UPSTREAM VERSION -->
-                <td>{{ software.version }}</td>
+                <td>{% if software.version %}{{ software.version }}{% endif %}</td>
                 
                 <!-- RELEASE TAG -->
                 <td>{{ release.label }} </td>
