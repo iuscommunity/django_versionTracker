@@ -31,6 +31,7 @@
             <td>Development Version</td>
             <td>{{ ourversion.development_version }}</td>
         </tr>
+
         {% endif %}
         
         <tr>
@@ -45,7 +46,7 @@
         
         <tr>
             <td><hr>Status</td>
-            <td><hr>{{ ourversion.status }}</td>
+            <td><hr><font color='{{ ourversion.status.html_color_code }}'>{{ ourversion.status }}</font></td>
         </tr>
         
         <tr>

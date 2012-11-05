@@ -48,6 +48,7 @@ class OurVersion(models.Model):
     modified = models.DateTimeField(auto_now=True)
     software = models.ForeignKey(Software)
     release = models.ForeignKey(Release)
+    status = models.ForeignKey(Status, blank=True, null=True)
     logs = models.TextField(blank=True, null=True)
     
     class Meta:

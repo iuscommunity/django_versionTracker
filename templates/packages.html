@@ -78,8 +78,8 @@
                 <td>{{ release.label }} </td>
                 
                 <!-- STATUS AREA -->
-                <td><font color='{{ software|get_status_color:release }}'>
-                {{ software|get_status_text:release }}</font>
+                <td><font color='{{ software.ourversion_set.all|get_status_color:release }}'>
+                {{ software.ourversion_set.all|get_status_text:release }}</font>
                 </td>
                 
             </tr>
