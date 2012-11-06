@@ -5,3 +5,4 @@ settings.py
 htmlcov
 *.sql
 updater
+.idea

@@ -3,7 +3,7 @@ from django.contrib import admin
 
 from tastypie.api import Api
 from software_versions.api import SoftwareResource, StatusResource
-from software_versions.api import OurVersionResource, ReleaseResource
+from software_versions.api import OurVersionResource, ReleaseResource, UserResource
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -14,6 +14,7 @@ v1_api.register(SoftwareResource())
 v1_api.register(OurVersionResource())
 v1_api.register(ReleaseResource())
 v1_api.register(StatusResource())
+v1_api.register(UserResource())
 
 urlpatterns = patterns('',
     # home page
