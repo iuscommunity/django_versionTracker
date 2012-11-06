@@ -20,9 +20,6 @@ LOGIN_URL='/login/'
 DISABLE_DEVELOPMENT = False
 DISABLE_TESTING = False
 
-# If we should create launchpad tickets
-LAUNCHPAD = False
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
