@@ -80,6 +80,15 @@
                 <!-- STATUS AREA -->
                 <td><font color='{{ software.ourversion_set.all|get_status_color:release }}'>
                 {{ software.ourversion_set.all|get_status_text:release }}</font>
+
+                    {%  if software.assigned %}
+                        &nbsp;<i class="icon-user"></i>
+                    {% endif %}
+
+                    {%  if software.ticket %}
+                        &nbsp;<a href='{{ software.ticket }}'><i class="icon-eye-open"></i></a>
+                    {% endif %}
+
                 </td>
                 
             </tr>
