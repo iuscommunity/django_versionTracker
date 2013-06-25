@@ -30,6 +30,7 @@ class Software(models.Model):
     post_value = models.CharField(max_length=100, blank=True, null=True)
     assigned = models.ForeignKey(User, blank=True, null=True)
     ticket = models.CharField(max_length=500, blank=True, null=True)
+    vcs = models.CharField(max_length=500, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     releases = models.ManyToManyField(Release)

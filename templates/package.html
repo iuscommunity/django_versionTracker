@@ -88,6 +88,15 @@
             <td></td>
           {% endif %}
       </tr>
+
+        <tr>
+          <td>VCS</td>
+          {% if software.vcs %}  
+            <td><a href='{{ software.vcs }}'>{{ software.vcs }}</a></td>
+          {% else %}
+            <td></td>
+          {% endif %}
+      </tr>
         
         <tr>
             <td valign='top'><hr>Notes</td>
