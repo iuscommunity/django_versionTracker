@@ -79,3 +79,7 @@ def mylogout(request):
     '''Logout a User'''
     logout(request)
     return redirect(reverse('home_view'))
+
+def custom_server_error(request, template_name='custom500.html'):
+    content = dict(settings=settings)
+    return render(request, template_name, content)

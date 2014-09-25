@@ -49,3 +49,5 @@ urlpatterns = patterns('',
     # admin
     url(r'^admin/', include(admin.site.urls)),
 )
+
+handler500 = 'software_versions.views.custom_server_error'
